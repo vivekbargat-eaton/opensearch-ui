@@ -1,19 +1,19 @@
 <div class="nav-bar" style="height: 20vh">
   <app-navigation-bar></app-navigation-bar>
 </div>
-
-<div class="container">
-  <form class="form-inline my-2 my-lg-0">
+<div class="search-field">
+  <form class="form-inline">
     <input
-      class="form-control mr-sm-2"
+      class="form-control mr-m-2"
       type="search"
+      style="width: 480px;"
       placeholder="Search"
       aria-label="Search"
       name="searchfield"
       [(ngModel)]="searchtext"
     />
     <button
-      class="btn btn-outline-success my-2 my-sm-0"
+      class="btn btn-outline-success my-2 my-sm-2"
       type="submit"
       (click)="searchText()"
     >
@@ -21,30 +21,32 @@
     </button>
   </form>
 
+</div>
+
+<div class="container">
+ 
   <div class="row">
-    <div class="col-2" style="padding-top: 70px">
-      <mat-card style="width: fit-content">
-        <h1>Fields</h1>
+    <div class="col-3" style="padding-top: 90px">
+      <mat-card  style="width: 250px">
+        <h1 >Fields</h1>
         <ul>
           <div class="form-radio">
             <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1" *ngFor="let hit of keys" > {{hit}}</mat-radio-button> 
+              <mat-radio-button value={{hit}} *ngFor="let hit of keys" > {{hit}}</mat-radio-button> 
             </mat-radio-group>
           </div>
         </ul>
       </mat-card>
     </div>
     <div class="col-7" style="padding-top: 20px">
-      <h1>Logs</h1>
-
       <mat-accordion *ngFor="let hit of hits">
         <mat-expansion-panel
           (opened)="panelOpenState = true"
           (closed)="panelOpenState = false"
         >
-          <mat-expansion-panel-header [expandedHeight]="'190px'">
+          <mat-expansion-panel-header [expandedHeight]="'90px'">
             <mat-panel-title>
-              <pre>Time stamps : {{ hit._source["@timestamp"] | json }}</pre>
+              <pre>Title : {{ hit._source.title | json }}</pre>
             </mat-panel-title>
             <mat-panel-description> </mat-panel-description>
           </mat-expansion-panel-header>
