@@ -83,7 +83,7 @@ export class SearchService {
     size: number
   ): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.termSearchUrl}'/'${field}'/'${value}'/'${from}'/'${size}`
+      `${this.termSearchUrl}/${field}/${value}/${from}/${size}`
     );
   }
 
@@ -93,7 +93,7 @@ export class SearchService {
     size: number
   ): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.luceneSearchUrl}'/'${query}'/'${from}'/'${size}`
+      `${this.luceneSearchUrl}/${query}/${from}/${size}`
     );
   }
 

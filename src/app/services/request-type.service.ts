@@ -1,8 +1,9 @@
 import { throwError as observableThrowError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { md5 } from 'md5';
 
-var md5 = require('md5');
+
 
 export class LogData {
   public Time: Date;
@@ -78,7 +79,7 @@ export class RequestType {
   }
 
   static setCookieName(cookieName: string) {
-    this.CookieName = cookieName;
+    // this.CookieName = cookieName;
   }
 
   private createLogData(url: string, inData: any): LogData {
@@ -124,7 +125,7 @@ export class RequestType {
   }
 
   public async getWithParams<T>(url: string, params?: any): Promise<T> {
-    return await this.getData2<T>(CacheEnum.CacheWithRefresh, url, params);
+    return await this.get<T>(CacheEnum.CacheWithRefresh, url, params);
   }
 
   public async get<T>(
