@@ -92,8 +92,9 @@ export class SearchService {
     from: number,
     size: number
   ): Promise<any> {
+
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.luceneSearchUrl}/${query}/${from}/${size}`
+      `${this.luceneSearchUrl}/${JSON.stringify(query)}/${from}/${size}`
     );
   }
 

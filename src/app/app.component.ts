@@ -11,7 +11,7 @@ export class AppComponent {
   async searchText()
   {
     console.log(this.searchtext)
-    await this.searchservices.getLuceneSearch(this.searchtext,0,25)
+    var resp = await this.searchservices.getLuceneSearch(this.searchtext,0,25)
    
   }
   constructor(private searchservices:SearchService) {
