@@ -37,7 +37,7 @@ export class SearchService {
     size: number
   ): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.matchSearchUrl}'/'${field}'/'${query}'/'${from}'/'${size}`
+      `${this.matchSearchUrl}/${field}/${query}/${from}/${size}`
     );
   }
 
@@ -49,7 +49,7 @@ export class SearchService {
     size: number
   ): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.phraseSearchUrl}'/'${field}'/'${query}'/'${slop}'/'${from}'/'${size}`
+      `${this.phraseSearchUrl}/${field}/${query}/${slop}/${from}/${size}`
     );
   }
 
@@ -60,7 +60,7 @@ export class SearchService {
     size: number
   ): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.queryStringSearchUrl}'/'${field}'/'${query}'/'${from}'/'${size}`
+      `${this.queryStringSearchUrl}/${field}/${query}/${from}/${size}`
     );
   }
 
@@ -72,7 +72,7 @@ export class SearchService {
     size: number
   ): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.rangeSearchUrl}'/'${field}'/'${gte}'/'${lte}'/'${from}'/'${size}`
+      `${this.rangeSearchUrl}/${field}/${gte}/${lte}/${from}/${size}`
     );
   }
 
@@ -106,13 +106,13 @@ export class SearchService {
 
   async getIndexMapping(indexName: string): Promise<any> {
     return await new RequestType(this.http).getWithParams<any>(
-      `${this.getIndexMappingUrl}'/'${indexName}`
+      `${this.getIndexMappingUrl}/${JSON.stringify(indexName)}`
     );
   }
 
   async deleteIndex(indexName: string): Promise<any> {
     return await new RequestType(this.http).delete<any>(
-      `${this.deleteIndexUrl}'/'${indexName}`
+      `${this.deleteIndexUrl}/${indexName}`
     );
   }
 }
